@@ -4,4 +4,9 @@ import com.example.demo.repository.modelo.Estudiante;
 
 public interface EstudianteRepo {
 	public void insertar(Estudiante estudiante);
+	public void actualizar(Estudiante estudiante);
+	public void eliminar(String cedula);
+	public Estudiante seleccionar(String cedula);
+	
+	
 }
