@@ -31,7 +31,7 @@ public class Pa2U2P4JaApplication implements CommandLineRunner{
 		cuenta.setCedula("1727501510");
 		cuenta.setTipo("A");
 		this.cuentaBancariaService.insertar(cuenta);
-		this.cuentaBancariaService.aperturar(cuenta.getNumero(), cuenta.getTipo(),cuenta.getSaldo(), cuenta.getCedula());
+		this.cuentaBancariaService.aperturar("123", "B",new BigDecimal(500), "1727501510");
 
 		
 		

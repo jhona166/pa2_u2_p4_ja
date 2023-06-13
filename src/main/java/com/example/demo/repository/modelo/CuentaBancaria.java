@@ -11,8 +11,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
-@Table(name="cuenta_bancaria")
 @Entity
+@Table(name="cuenta_bancaria")
 public class CuentaBancaria {
 
 	@SequenceGenerator(name="seq_cuenta",sequenceName = "seq_cuenta",allocationSize = 1)
