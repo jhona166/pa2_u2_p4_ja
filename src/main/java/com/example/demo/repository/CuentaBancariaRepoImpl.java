@@ -36,4 +36,10 @@ public class CuentaBancariaRepoImpl implements CuentaBancariaRepo{
 		return this.entityManager.find(CuentaBancaria.class ,numero);
 	}
 
+	@Override
+	public CuentaBancaria encontrar(Integer id) {
+		// TODO Auto-generated method stub
+		return this.entityManager.find(CuentaBancaria.class ,id);
+	}
+
 }

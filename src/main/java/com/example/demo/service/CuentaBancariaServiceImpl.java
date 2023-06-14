@@ -32,19 +32,20 @@ public class CuentaBancariaServiceImpl implements CuentaBancariaService {
 	@Override
 	public void aperturar(String numero, String tipo, BigDecimal saldo, String cedula) {
 		// TODO Auto-generated method stub
-		CuentaBancaria cuenta = this.cuentaBancariaRepo.consultar(numero);
+		CuentaBancaria cuenta = this.cuentaBancariaRepo.encontrar(1);
 		Integer dia = cuenta.getFechaDeApertura().getDayOfMonth();
 		BigDecimal saldoT=new BigDecimal(0);
 		System.out.println(dia);
 		  if ( dia % 2 == 0 )
 	        {
-	            System.out.printf( "ES PAR" );
-	            BigDecimal comision = saldo.multiply(new BigDecimal(0.5));
-	            saldoT=comision.add(saldo);		
+	          	
 	       
 	        }
 	        else
 	        {
+	        	  System.out.printf( "ES PAR" );
+		            BigDecimal comision = saldo.multiply(new BigDecimal(0.5));
+		            saldoT=comision.add(saldo);	
 	            System.out.printf( "ES IMPAR" );
 	        }
 		 cuenta.setSaldo(saldoT); 
@@ -57,6 +58,12 @@ public class CuentaBancariaServiceImpl implements CuentaBancariaService {
 	public void insertar(CuentaBancaria cuenta) {
 		// TODO Auto-generated method stub
 		this.cuentaBancariaRepo.insertar(cuenta);
+	}
+
+	@Override
+	public CuentaBancaria buscar(Integer id) {
+		// TODO Auto-generated method stub
+		return this.cuentaBancariaRepo.encontrar(id);
 	}
 
 	

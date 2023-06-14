@@ -9,4 +9,5 @@ public interface CuentaBancariaService {
 	public void aperturar(String numero, String tipo, BigDecimal saldo,String cedula);
 	public void actualizar(CuentaBancaria cuenta);
 	public CuentaBancaria consultar(String numero);
+	public CuentaBancaria buscar(Integer id);
 }
