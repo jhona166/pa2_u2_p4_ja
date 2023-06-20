@@ -26,7 +26,7 @@ public class Autor {
 	@Column(name="auto_apellido")
 	private String apellido;
 	
-	@ManyToMany(mappedBy = "autores")
+	@ManyToMany(mappedBy = "autores",cascade=CascadeType.ALL)
 	private Set<Libro> libros;
 
 

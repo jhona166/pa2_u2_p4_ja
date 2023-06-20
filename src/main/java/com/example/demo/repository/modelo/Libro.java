@@ -27,7 +27,7 @@ public class Libro {
 	@Column(name="libr_editorial")
 	private String editorial;
 	
-	@ManyToMany(cascade=CascadeType.ALL)
+	@ManyToMany()
 	
 	//Empezamos con la que estamos trabajando auli_id_libro
 	@JoinTable(name="autor_libro", joinColumns = @JoinColumn(name="auli_id_libro"),

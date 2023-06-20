@@ -10,10 +10,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.repository.modelo.Autor;
 import com.example.demo.repository.modelo.Libro;
+import com.example.demo.service.AutorService;
 import com.example.demo.service.LibroService;
 
 @SpringBootApplication
 public class Pa2U2P4JaApplication implements CommandLineRunner {
+	@Autowired
+	private AutorService autorService;
 	@Autowired
 	private LibroService libroService;
 
@@ -23,44 +26,60 @@ public class Pa2U2P4JaApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// Mis 3 Autores
-		Set<Autor> autores = new HashSet<Autor>();
-
-		Autor autor = new Autor();
-		autor.setNombre("Juan");
-		autor.setApellido("Arias");
-
-		Autor autor1 = new Autor();
-		autor1.setNombre("Marco");
-		autor1.setApellido("Delgado");
-
-		Autor autor2 = new Autor();
-		autor2.setNombre("Jimmy");
-		autor2.setApellido("Arteaga");
-		// Agrego mis tre autores al conjunto
-		autores.add(autor);
-		autores.add(autor1);
-		autores.add(autor2);
-
+		Set<Libro> libros = new HashSet<Libro>();
 		Libro libro = new Libro();
 		libro.setEditorial("Edinun");
 		libro.setTitulo("Matematica1");
-		// Le seteeo al libro que tiene 3 autores
-		libro.setAutores(autores);
+		
 
-		//Construimos el conjunto de libros para settear al autor
-		Set<Libro> libros = new HashSet<Libro>();
+		Libro libro1 = new Libro();
+		libro1.setEditorial("Atlas");
+		libro1.setTitulo("Fisica1");
+		
+
+		Libro libro2 = new Libro();
+		libro2.setEditorial("Alfa");
+		libro2.setTitulo("SSCC");
+		
+		// Agrego mis tres libros al conjunto
 		libros.add(libro);
-
+		libros.add(libro1);
+		libros.add(libro2);
 		
+		//Creo un autor
+		Autor autor = new Autor();
+		autor.setNombre("Juan");
+		autor.setApellido("Arias");
 		
-		//Seteamos a cada autor el libro
+		//Le seteeo al autor el libro que tiene
 		autor.setLibros(libros);
-		autor1.setLibros(libros);
-		autor2.setLibros(libros);
-		this.libroService.crear(libro);
 		
-
+		//Construimos el conjunto de autores para settear al libro
+		Set<Autor> autores = new HashSet<Autor>();
+		autores.add(autor);
+		
+		//Crear
+		autorService.crear(autor);
+		//Modificar
+		Libro librom = new Libro();
+		librom.setTitulo("Matematica5");
+		this.libroService.actualizar(librom);
+		
+		//Buscar
+		this.libroService.buscar(libro.getId());
+		
+		//Eliminar
+		this.libroService.borrar(libro2.getId());
+		
+		
+		
+		
+		
+		
+	
+		
+		
+		
 	}
 
 }
