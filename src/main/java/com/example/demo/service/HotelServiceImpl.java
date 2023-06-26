@@ -1,9 +1,12 @@
 package com.example.demo.service;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.repository.HotelRepo;
+import com.example.demo.repository.modelo.Empleado;
 import com.example.demo.repository.modelo.Hotel;
 
 @Service 
@@ -33,5 +36,7 @@ public class HotelServiceImpl implements HotelService{
 		// TODO Auto-generated method stub
 		return this.hotelRepo.seleccionar(id);
 	}
+
+
 
 }

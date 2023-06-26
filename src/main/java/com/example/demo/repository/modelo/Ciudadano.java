@@ -27,8 +27,8 @@ public class Ciudadano {
 	@Column(name="ciud_cedula")
 	private String cedula;
 	
-	
-	@OneToOne(mappedBy = "ciudadano",cascade = CascadeType.PERSIST)
+	//@OneToOne(mappedBy = "ciudadano",cascade = CascadeType.PERSIST)
+	@OneToOne(mappedBy = "ciudadano")
 	private Empleado empleado;
 	
 	

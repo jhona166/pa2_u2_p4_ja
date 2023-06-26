@@ -1,6 +1,8 @@
 package com.example.demo.repository;
 
-import com.example.demo.repository.modelo.Ciudadano;
+import java.math.BigDecimal;
+import java.util.List;
+
 import com.example.demo.repository.modelo.Empleado;
 
 public interface EmpleadoRepo {
@@ -8,4 +10,10 @@ public interface EmpleadoRepo {
 	public void actualizar(Empleado empleado);
 	public Empleado seleccionar(Integer id);
 	public void eliminar(Integer id);
+	public Empleado seleccionarPorCedula(String cedula);
+	public List<Empleado> seleccionarPorCargo(String cargo);
+	public Empleado seleccionarPorSueldoTyped(BigDecimal sueldo);
+	public List<Empleado> seleccionarPorEdadCargo(String edad, String cargo);
+	public List<Empleado> seleccionarPorGeneroTyped(String genero);
+	
 }
