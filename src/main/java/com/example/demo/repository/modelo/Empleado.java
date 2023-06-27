@@ -2,19 +2,21 @@ package com.example.demo.repository.modelo;
 
 import java.math.BigDecimal;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="empleado")
+@NamedQuery(name="Estudiante.buscaPorApellido",query="SELECT e FROM ESTUDIANTE e WHERE APELLIDO e.apellido=:datoApellido")
+
 public class Empleado {
 
 	@SequenceGenerator(name="seq_empleado",sequenceName = "seq_empleado",allocationSize = 1)
