@@ -125,7 +125,7 @@ public class EstudianteRepoImpl implements EstudianteRepo{
 	public Estudiante seleccionarPorNombreNativeQueryNamed(String nombre) {
 		// TODO Auto-generated method stub
 		TypedQuery<Estudiante> myQuery=this.entityManager.createNamedQuery("Estudiante.buscarPorNombreNative",Estudiante.class);
-		myQuery.setParameter("datoApellido", nombre);
+		myQuery.setParameter("datoNombre", nombre);
 		return myQuery.getSingleResult();
 	}
 	@Override

@@ -74,7 +74,7 @@ public class EstudianteServiceImpl implements EstudianteService{
 	}
 
 	@Override
-	public Estudiante seleccionarPorApellidoNativeQuery(String apellido) {
+	public Estudiante buscarPorApellidoNativeQuery(String apellido) {
 		// TODO Auto-generated method stub
 		return this.estudianteRepo.seleccionarPorApellidoNativeQuery(apellido);
 	}
@@ -89,6 +89,20 @@ public class EstudianteServiceImpl implements EstudianteService{
 	public Estudiante buscarPorNombreNativeQueryNamed(String nombre) {
 		// TODO Auto-generated method stub
 		return this.estudianteRepo.seleccionarPorNombreNativeQueryNamed(nombre);
+	}
+
+
+	@Override
+	public Estudiante buscarPorApellidoNativeQueryNamed(String apellido) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.seleccionarPorApellidoNativeQueryNamed(apellido);
+	}
+
+	
+	@Override
+	public Estudiante buscarPorApellidoCriteriaAPIQuery(String apellido) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.seleccionarPorApellidoCriteriaAPIQuery(apellido);
 	}
 	
 
