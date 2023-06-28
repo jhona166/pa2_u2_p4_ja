@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.example.demo.repository.modelo.Ciudadano;
 import com.example.demo.repository.modelo.Empleado;
+import com.example.demo.repository.modelo.Empleado;
 
 public interface EmpleadoService {
 	public void crear(Empleado empleado);
@@ -17,4 +18,6 @@ public interface EmpleadoService {
 	public List<Empleado> buscarPorEdadCargo(String edad, String cargo);
 	public List<Empleado> buscarPorGeneroTyped(String genero);
 	
+	public Empleado buscarPorApellidoNamed(String apellido);
+	public Empleado buscarPorApellidoNamedQuery(String apellido);
 }

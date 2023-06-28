@@ -18,6 +18,8 @@ import com.example.demo.service.EstudianteService;
 public class Pa2U2P4JaApplication implements CommandLineRunner {
 	@Autowired
 	private EmpleadoService empleadoService; 
+	@Autowired
+	private EstudianteService estudianteService; 
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P4JaApplication.class, args);
 	}
@@ -39,6 +41,7 @@ public class Pa2U2P4JaApplication implements CommandLineRunner {
 	empl2.setCargo("Gerente");
 	empl2.setCedula("1727501512");
 	empl2.setSueldo(new BigDecimal(4450));
+	empl2.setApellido("Altamirano");
 	
 	Empleado empl3 = new Empleado();
 	empl3.setCargo("Contador");
@@ -66,6 +69,14 @@ public class Pa2U2P4JaApplication implements CommandLineRunner {
 	empl1aux.setCargo("Vendedor");
 	empl1aux.setEdad("33");
 	
+	Estudiante estu = new Estudiante();
+	estu.setApellido("Altamirano");
+	estu.setNombre("Jhonatan");
+	
+	Estudiante estu1 = new Estudiante();
+	estu1.setApellido("Arias");
+	estu1.setNombre("Carmen");
+	
 	//Creo Empleado
 	this.empleadoService.crear(empl);
 	this.empleadoService.crear(empl1);
@@ -74,6 +85,8 @@ public class Pa2U2P4JaApplication implements CommandLineRunner {
 	this.empleadoService.crear(empl4);
 	this.empleadoService.crear(empl5);
 	this.empleadoService.crear(empl6);
+	this.estudianteService.crear(estu);
+	
 
 	//Buscar Empleado
 	Empleado emp1Bus= this.empleadoService.buscar(1);
@@ -139,6 +152,15 @@ public class Pa2U2P4JaApplication implements CommandLineRunner {
 	for (Empleado empleado : repEmpleados) {
 		System.out.println("Genero: "+empleado.getGenero()+"  Cedula: "+empleado.getCedula());
 	}
+	
+	
+	System.out.println("Buscar por apellido Named");
+	//System.out.println(this.empleadoService.buscarPorApellidoNamed("Altamirano"));
+	
+	System.out.println("Buscar por apellido Native Query");
+	System.out.println(this.estudianteService.buscarPorApellidoNamed("Altamirano"));
+	
+	
 	
 	}
 	

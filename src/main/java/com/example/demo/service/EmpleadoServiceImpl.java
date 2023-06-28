@@ -67,4 +67,16 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 		return this.empleadoRepo.seleccionarPorGeneroTyped(genero);
 	}
 
+	@Override
+	public Empleado buscarPorApellidoNamed(String apellido) {
+		// TODO Auto-generated method stub
+		return this.empleadoRepo.seleccionarPorApellidoNamed(apellido);
+	}
+
+	@Override
+	public Empleado buscarPorApellidoNamedQuery(String apellido) {
+		// TODO Auto-generated method stub
+		return this.empleadoRepo.seleccionarPorApellidoNamedQuery(apellido);
+	}
+
 }

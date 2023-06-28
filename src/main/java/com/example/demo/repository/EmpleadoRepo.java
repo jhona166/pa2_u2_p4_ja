@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.example.demo.repository.modelo.Empleado;
+import com.example.demo.repository.modelo.Estudiante;
 
 public interface EmpleadoRepo {
 	public void insertar(Empleado empleado);
@@ -16,4 +17,6 @@ public interface EmpleadoRepo {
 	public List<Empleado> seleccionarPorEdadCargo(String edad, String cargo);
 	public List<Empleado> seleccionarPorGeneroTyped(String genero);
 	
+	public Empleado seleccionarPorApellidoNamed(String apellido);
+	public Empleado seleccionarPorApellidoNamedQuery(String apellido);
 }

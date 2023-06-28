@@ -15,8 +15,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="empleado")
-@NamedQuery(name="Estudiante.buscaPorApellido",query="SELECT e FROM ESTUDIANTE e WHERE APELLIDO e.apellido=:datoApellido")
-
+@NamedQuery(name="Empleado.buscarPorApellido",query="SELECT e FROM Empleado e WHERE e.apellido=:datoApellido")
 public class Empleado {
 
 	@SequenceGenerator(name="seq_empleado",sequenceName = "seq_empleado",allocationSize = 1)
@@ -37,7 +36,8 @@ public class Empleado {
 	private String edad;
 	@Column(name="empl_genero")
 	private String genero;
-
+	@Column(name="empl_apellido")
+	private String apellido;
 	//cascade=CascadeType.ALL
 	@OneToOne()
 	@JoinColumn(name="empl_ciudadano_id")
@@ -63,10 +63,17 @@ public class Empleado {
 	
 	
 
+	
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
 	@Override
 	public String toString() {
 		return "Empleado [id=" + id + ", sueldo=" + sueldo + ", cargo=" + cargo + ", cedula=" + cedula + ", edad="
-				+ edad + ", genero=" + genero + "]";
+				+ edad + ", genero=" + genero + ", apellido=" + apellido + "]";
 	}
 	/**
 	 * @return the genero

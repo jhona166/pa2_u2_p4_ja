@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.repository.modelo.Empleado;
+import com.example.demo.repository.modelo.Estudiante;
+import com.example.demo.repository.modelo.Empleado;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -84,6 +86,22 @@ public class EmpleadoRepoImpl implements EmpleadoRepo {
 		TypedQuery<Empleado> myQuery = this.entityManager.createQuery("SELECT e FROM Empleado e WHERE e.genero=:datoGenero",Empleado.class);
 		myQuery.setParameter("datoGenero", genero);
 		return myQuery.getResultList();
+	}
+
+	@Override
+	public Empleado seleccionarPorApellidoNamed(String apellido) {
+		// TODO Auto-generated method stub
+		TypedQuery<Empleado> myQuery=this.entityManager.createNamedQuery("Empleado.buscarPorApellido",Empleado.class);
+		myQuery.setParameter("datoApellido", apellido);
+		return myQuery.getSingleResult();
+	}
+
+	@Override
+	public Empleado seleccionarPorApellidoNamedQuery(String apellido) {
+		// TODO Auto-generated method stub
+		Query myQuery = this.entityManager.createNamedQuery("Empleado.buscarPorApellido");
+		myQuery.setParameter("datoApellido", apellido);
+		return (Empleado)myQuery.getSingleResult();
 	}
 	
 
