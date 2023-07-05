@@ -40,6 +40,16 @@ public class Estudiante {
 	@Column(name="estu_apellido")
 	private String apellido;
 	
+	@Column(name="estu_peso")
+	private Double peso;
+	
+	
+	public Double getPeso() {
+		return peso;
+	}
+	public void setPeso(Double peso) {
+		this.peso = peso;
+	}
 	@Override
 	public String toString() {
 		return "Estudiante [nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + "]";
