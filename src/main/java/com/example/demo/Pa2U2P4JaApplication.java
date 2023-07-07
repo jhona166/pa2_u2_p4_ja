@@ -31,12 +31,16 @@ public class Pa2U2P4JaApplication implements CommandLineRunner {
 		estu.setApellido("Jhonatan");
 		estu.setNombre("Altamirano");
 		estu.setPeso(Double.valueOf(90));
-	
+		estu.setCredAprobados(Double.valueOf(260));
+		estu.setPromedio(Double.valueOf(19.20));
+		
 	Estudiante estu1 = new Estudiante();
 	estu1.setApellido("Arias");
 	estu1.setNombre("Carmen");
 	estu1.setPeso(Double.valueOf(120));
-	
+	estu1.setPeso(Double.valueOf(90));
+	estu1.setCredAprobados(Double.valueOf(250));
+	estu1.setPromedio(Double.valueOf(16.14));
 	
 	
 	this.estudianteService.crear(estu);
@@ -45,18 +49,17 @@ public class Pa2U2P4JaApplication implements CommandLineRunner {
 
 	
 	
-	System.out.println("Busqueda dinamica");
+	System.out.println("Busqueda dinamica1");
+	//nombre, apellido, credAprobados, promedio
+	this.estudianteService.buscarEstudianteBecadoDinamico(estu.getNombre(), estu.getApellido(), estu.getCredAprobados(),estu.getPromedio());
+	
+	System.out.println("Busqueda dinamica 2 ");
+	//nombre, apellido, credAprobados, promedio
+	this.estudianteService.buscarEstudianteBecadoDinamico(estu.getNombre(), estu.getApellido(), estu.getCredAprobados(),estu.getPromedio());
+	
 
-	this.estudianteService.buscarEstudianteDinamico(estu1.getNombre(), estu1.getApellido(), estu1.getPeso());
-	
-	
-	System.out.println("Borrar por mombre");
 
-	this.estudianteService.borrarPorNombre("Jhonatan");
-	
-	System.out.println("Update nombre por apellido");
-	
-	this.estudianteService.actualizarPorApellido("Juan","Arias");
+
 	
 	}
 	

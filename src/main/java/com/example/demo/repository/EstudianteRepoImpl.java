@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -229,6 +230,49 @@ public class EstudianteRepoImpl implements EstudianteRepo {
 		System.out.println(myQuery.executeUpdate());
 		return myQuery.executeUpdate();
 			
+	}
+
+	@Override
+	public Estudiante seleccionarEstudianteBecadoDinamico(String nombre, String apellido, Double credAprobados,
+			Double promedio) {
+		// TODO Auto-generated method stub
+		//1. Especificar el tipo de retorno de mi Query
+		CriteriaBuilder myBuilder = this.entityManager.getCriteriaBuilder();
+		CriteriaQuery<Estudiante> myCriteriaQuery =myBuilder.createQuery(Estudiante.class);
+		
+		//2. Empezamos a crear mi SQL
+		//2.1 Definimos el FROM(Root)
+		Root<Estudiante> miTablaFrom = myCriteriaQuery.from(Estudiante.class);
+		
+		//3.Construimos las condiciones
+		//e.nombre
+		Predicate pNombre = myBuilder.equal(miTablaFrom.get("nombre"), nombre);
+		
+		//e.apellido
+		Predicate pApellido = myBuilder.equal(miTablaFrom.get("apellido"), apellido);
+		
+		//e.credAprobados
+		//mayor o igual que 20 ya que se tomara encuenta a estudiantes de sem. superiores
+		Predicate pCredAprobados = myBuilder.greaterThanOrEqualTo(miTablaFrom.get("credAprobados"),150);
+		
+		
+		//e.promedio
+		Predicate pPromedio = null;
+		if(promedio.compareTo(Double.valueOf(18))>=0) {
+			pCredAprobados = myBuilder.and(pNombre,pApellido,pCredAprobados);
+		}else {
+			pCredAprobados = myBuilder.or(pNombre,pApellido,pCredAprobados);
+		}
+		
+		//4. Armamos mi SQL final 
+		myCriteriaQuery.select(miTablaFrom).where(pCredAprobados);
+
+
+		// 5. La ejecucion del Query lo realizamos con typed Query
+		TypedQuery<Estudiante> myQueryFinal = this.entityManager.createQuery(myCriteriaQuery);
+		return myQueryFinal.getSingleResult();
+		
+		
 	}
 
 }

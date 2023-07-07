@@ -32,4 +32,6 @@ public interface EstudianteRepo {
 	
 	public int actualizarPorApellido(String nombre,String apellido);
 	
+	public Estudiante seleccionarEstudianteBecadoDinamico(String nombre,String apellido, Double credAprobados,Double promedio );
+	
 }

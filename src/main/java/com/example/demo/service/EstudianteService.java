@@ -29,4 +29,7 @@ public interface EstudianteService {
 
 	public int borrarPorNombre(String nombre);
 	public int actualizarPorApellido(String nombre,String apellido);
+
+	public Estudiante buscarEstudianteBecadoDinamico(String nombre,String apellido, Double credAprobados,Double promedio );
+	
 }

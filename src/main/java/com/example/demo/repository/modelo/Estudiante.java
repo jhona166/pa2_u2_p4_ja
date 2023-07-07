@@ -44,17 +44,52 @@ public class Estudiante {
 	private Double peso;
 	
 	
+	@Column(name="estu_cred_Aprobados")
+	private Double credAprobados;
+	
+	
+	@Column(name="estu_promedio")
+	private Double promedio;
+		
+	
+	
+	@Override
+	public String toString() {
+		return "Estudiante [id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido
+				+ ", peso=" + peso + ", credAprobados=" + credAprobados + ", promedio=" + promedio + "]";
+	}
+	
+	
+	//Set and Get
 	public Double getPeso() {
 		return peso;
 	}
 	public void setPeso(Double peso) {
 		this.peso = peso;
 	}
-	@Override
-	public String toString() {
-		return "Estudiante [nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + "]";
+
+	
+	
+	
+	public Integer getId() {
+		return id;
 	}
-	//Set and Get
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Double getCredAprobados() {
+		return credAprobados;
+	}
+	public void setCredAprobados(Double credAprobados) {
+		this.credAprobados = credAprobados;
+	}
+	public Double getPromedio() {
+		return promedio;
+	}
+	public void setPromedio(Double promedio) {
+		this.promedio = promedio;
+	}
+	
 	public String getNombre() {
 		return nombre;
 	}

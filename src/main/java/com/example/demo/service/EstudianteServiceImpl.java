@@ -108,6 +108,13 @@ public class EstudianteServiceImpl implements EstudianteService{
 		// TODO Auto-generated method stub
 		return this.estudianteRepo.eliminarPorNombre(nombre);
 	}
+
+	@Override
+	public Estudiante buscarEstudianteBecadoDinamico(String nombre, String apellido, Double credAprobados,
+			Double promedio) {
+		// TODO Auto-generated method stub
+		return 	this.estudianteRepo.seleccionarEstudianteBecadoDinamico(nombre, apellido, credAprobados, promedio);
+	}
 	
 
 }
