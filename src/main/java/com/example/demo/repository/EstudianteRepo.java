@@ -34,4 +34,7 @@ public interface EstudianteRepo {
 	
 	public Estudiante seleccionarEstudianteBecadoDinamico(String nombre,String apellido, Double credAprobados,Double promedio );
 	
-}
+	public int eliminarPorCreditos(Double credAprobados);
+
+	public int actualizarPorCredAprobados(Double promedio,Double credAprobados);
+}			

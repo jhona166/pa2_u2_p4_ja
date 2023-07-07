@@ -32,4 +32,7 @@ public interface EstudianteService {
 
 	public Estudiante buscarEstudianteBecadoDinamico(String nombre,String apellido, Double credAprobados,Double promedio );
 	
+	public int borrarPorCreditos(Double credAprobados);
+	
+	public int actualizarPorCredAprobados(Double promedio,Double credAprobados);
 }

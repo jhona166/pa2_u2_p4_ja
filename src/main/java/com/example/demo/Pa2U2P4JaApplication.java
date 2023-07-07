@@ -43,20 +43,24 @@ public class Pa2U2P4JaApplication implements CommandLineRunner {
 	estu1.setPromedio(Double.valueOf(16.14));
 	
 	
+	Estudiante estu2 = new Estudiante();
+	estu2.setApellido("Arias");
+	estu2.setNombre("Maria");
+	estu2.setPeso(Double.valueOf(120));
+	estu2.setPeso(Double.valueOf(90));
+	estu2.setCredAprobados(Double.valueOf(260));
+	estu2.setPromedio(Double.valueOf(18.14));
+	
+	
 	this.estudianteService.crear(estu);
 	this.estudianteService.crear(estu1);
+	this.estudianteService.crear(estu2);
 	
 
-	
-	
-	System.out.println("Busqueda dinamica1");
-	//nombre, apellido, credAprobados, promedio
-	this.estudianteService.buscarEstudianteBecadoDinamico(estu.getNombre(), estu.getApellido(), estu.getCredAprobados(),estu.getPromedio());
-	
-	System.out.println("Busqueda dinamica 2 ");
-	//nombre, apellido, credAprobados, promedio
-	this.estudianteService.buscarEstudianteBecadoDinamico(estu.getNombre(), estu.getApellido(), estu.getCredAprobados(),estu.getPromedio());
-	
+	this.estudianteService.borrarPorCreditos(Double.valueOf(250));
+		
+	System.out.println("Actutalizar por cred Aprobados");
+	this.estudianteService.actualizarPorCredAprobados(Double.valueOf(16.144), Double.valueOf(250));
 
 
 

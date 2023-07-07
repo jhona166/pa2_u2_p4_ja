@@ -115,6 +115,18 @@ public class EstudianteServiceImpl implements EstudianteService{
 		// TODO Auto-generated method stub
 		return 	this.estudianteRepo.seleccionarEstudianteBecadoDinamico(nombre, apellido, credAprobados, promedio);
 	}
+
+	@Override
+	public int borrarPorCreditos(Double credAprobados) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.eliminarPorCreditos(credAprobados);
+	}
+
+	@Override
+	public int actualizarPorCredAprobados(Double promedio, Double credAprobados) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.actualizarPorCredAprobados(promedio, credAprobados);
+	}
 	
 
 }

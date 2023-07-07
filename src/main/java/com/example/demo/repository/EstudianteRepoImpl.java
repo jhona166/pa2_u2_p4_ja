@@ -275,4 +275,26 @@ public class EstudianteRepoImpl implements EstudianteRepo {
 		
 	}
 
+	@Override
+	public int eliminarPorCreditos(Double credAprobados) {
+		// TODO Auto-generated method stub
+		Query myQuery = this.entityManager.createQuery("DELETE FROM Estudiante e WHERE e.credAprobados =:datoCred");
+		myQuery.setParameter("datoCred", credAprobados);	
+		System.out.println(myQuery.executeUpdate());
+		return myQuery.executeUpdate();
+	}
+
+	@Override
+	public int actualizarPorCredAprobados(Double promedio, Double credAprobados) {
+		// TODO Auto-generated method stub
+
+		Query myQuery = this.entityManager.createQuery("UPDATE Estudiante e SET e.promedio=:datoPromedio WHERE e.credAprobados=:datoCred");
+		myQuery.setParameter("datoPromedio",promedio);
+		myQuery.setParameter("datoCred",credAprobados);
+		System.out.println(myQuery.executeUpdate());
+		return myQuery.executeUpdate();
+			
+	}
+
+	
 }
