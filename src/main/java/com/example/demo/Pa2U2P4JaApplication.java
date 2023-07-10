@@ -1,19 +1,17 @@
 package com.example.demo;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.repository.modelo.Alumno;
-import com.example.demo.repository.modelo.Estudiante;
-import com.example.demo.repository.modelo.Habitacion;
-import com.example.demo.repository.modelo.Hotel;
-import com.example.demo.repository.modelo.Materia;
-import com.example.demo.repository.modelo.Matricula;
+import com.example.demo.repository.modelo.Autor;
+import com.example.demo.repository.modelo.Libro;
+import com.example.demo.service.AutorService;
 import com.example.demo.service.EmpleadoService;
 import com.example.demo.service.EstudianteService;
 import com.example.demo.service.HotelService;
@@ -29,100 +27,64 @@ public class Pa2U2P4JaApplication implements CommandLineRunner {
 	private HotelService hotelService;
 	@Autowired
 	private MatriculaService matriculaService;
+	@Autowired
+	private AutorService autorService;
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P4JaApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
+	
+	Set<Autor> autores = new HashSet<>();
+	Autor autor = new Autor();
+	autor.setNombre("Gabriel");
+	autor.setApellido("Garcia");
+	autor.setNacionalidad("Colombiana");
+	autor.setFechaNacimiento(LocalDateTime.of(1927, 03, 27, 0, 0));
+	autor.setGenero("M");
+	autores.add(autor);
+	
+	Autor autor1 = new Autor();
+	autor1.setNombre("Isabel");
+	autor1.setApellido("Allente");
+	autor1.setNacionalidad("Peru");
+	autor1.setFechaNacimiento(LocalDateTime.of(1942,8,02,0, 0));
+	autor1.setGenero("F");
+	autores.add(autor1);
+	
+	Autor autor2 = new Autor();
+	autor2.setNombre("Steven");
+	autor2.setApellido("King");
+	autor2.setNacionalidad("Americana");
+	autor2.setFechaNacimiento(LocalDateTime.of(1947,9,21,0, 0));
+	autor2.setGenero("M");
+	autores.add(autor2);
+	
+	
+	
+	Libro libro = new Libro();
+	libro.setTitulo("Escritores inolvidables");
+	libro.setEditorial("Gama editores");
+	libro.setAutores(autores);
 
-		Estudiante estu = new Estudiante();
-		estu.setApellido("Jhonatan");
-		estu.setNombre("Altamirano");
-		estu.setPeso(Double.valueOf(90));
-		estu.setCredAprobados(Double.valueOf(260));
-		estu.setPromedio(Double.valueOf(19.20));
-		
-	Estudiante estu1 = new Estudiante();
-	estu1.setApellido("Arias");
-	estu1.setNombre("Carmen");
-	estu1.setPeso(Double.valueOf(120));
-	estu1.setPeso(Double.valueOf(90));
-	estu1.setCredAprobados(Double.valueOf(250));
-	estu1.setPromedio(Double.valueOf(16.14));
+	Libro libro1 = new Libro();
+	libro1.setTitulo("Memorias");
+	libro1.setEditorial("Gama editores");
+	libro1.setAutores(autores);
 	
 	
-	Estudiante estu2 = new Estudiante();
-	estu2.setApellido("Arias");
-	estu2.setNombre("Maria");
-	estu2.setPeso(Double.valueOf(120));
-	estu2.setPeso(Double.valueOf(90));
-	estu2.setCredAprobados(Double.valueOf(260));
-	estu2.setPromedio(Double.valueOf(18.14));
-	
-	Alumno alum=new  Alumno();
-	alum.setNombre("Paez");
-	
-	Materia mate = new Materia();
-	mate.setNombre("Matematica");
-	
-	
-	Matricula matri = new Matricula();
-	matri.setAlumno(alum);
-	matri.setMateria(mate);
-	
-	this.matriculaService.crear(matri);
-	
-	
-	this.estudianteService.crear(estu);
-	this.estudianteService.crear(estu1);
-	this.estudianteService.crear(estu2);
-	
-	List<Habitacion> habitaciones = new ArrayList<>();
-	Habitacion habi = new Habitacion();
-	habi.setNumero("A1");
-
-	Habitacion habi1 = new Habitacion();
-	habi1.setNumero("A2");
-	
-	habitaciones.add(habi);
-	habitaciones.add(habi1);
-	
-	
-	Hotel hotel = new Hotel();
-	hotel.setDireccion("AV. Colon");
-	hotel.setNombre("Las palmeras");
-	
-	this.hotelService.crear(hotel);
-
-	this.hotelService.buscar(1);
-	
-	System.out.println(this.hotelService.buscar(1).getNombre());
-	
-	
-	//this.estudianteService.borrarPorCreditos(Double.valueOf(250));
-		
-	//System.out.println("Actutalizar por cred Aprobados");
-	//this.estudianteService.actualizarPorCredAprobados(Double.valueOf(16.144), Double.valueOf(250));
-
-	System.out.println("Busqueda con DTO");
-	
-	System.out.println(this.estudianteService.buscarTodosDTO());
-
-	//System.out.println("Busqueda con DTO 2");
-	
-	//System.out.println(this.matriculaService.buscarTodosDTO());
-	
+	//Crear autores
+	this.autorService.crear(autor);
+	this.autorService.crear(autor1);
+	this.autorService.crear(autor2);
 	
 	System.out.println("Busqueda con DTO");
+	System.out.println(this.autorService.buscarTodosDTO());
 	
-	System.out.println(this.matriculaService.buscarTodosDTO());
-	
-	System.out.println("Imprimir habitaciones");
-	
-	System.out.println(this.hotelService.seleccionarTodos());
-	
+	System.out.println("Busqueda Lazy");
+	System.out.println(this.autorService.seleccionarTodos());
+		
+		
 	}
-	
-
 }

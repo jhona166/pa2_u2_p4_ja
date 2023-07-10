@@ -11,4 +11,5 @@ public interface AutorRepo {
 	public Autor seleccionar(Integer id);
 	public void eliminar(Integer id);
 	public List<AutorDTO> seleccionarTodosDTO();
+	public List<Autor> seleccionarTodos();
 }

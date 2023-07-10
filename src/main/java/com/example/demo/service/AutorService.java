@@ -11,4 +11,5 @@ public interface AutorService {
 	public Autor buscar(Integer id);
 	public void borrar(Integer id);
 	public List<AutorDTO> buscarTodosDTO();
+	public List<Autor> seleccionarTodos();
 }

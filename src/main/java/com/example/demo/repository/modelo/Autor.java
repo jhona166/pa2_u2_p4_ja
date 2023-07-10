@@ -6,6 +6,7 @@ import java.util.Set;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -33,7 +34,7 @@ public class Autor {
 	@Column(name="auto_fecha_nacimiento")
 	private LocalDateTime fechaNacimiento;
 	
-	@ManyToMany(mappedBy = "autores",cascade=CascadeType.ALL)
+	@ManyToMany(mappedBy = "autores",cascade=CascadeType.ALL,fetch = FetchType.LAZY)
 	private Set<Libro> libros;
 
 	@Override

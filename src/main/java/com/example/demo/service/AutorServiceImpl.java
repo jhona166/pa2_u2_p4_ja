@@ -43,4 +43,10 @@ public class AutorServiceImpl implements AutorService {
 		return this.autorRepo.seleccionarTodosDTO();
 	}
 
+	@Override
+	public List<Autor> seleccionarTodos() {
+		// TODO Auto-generated method stub
+		return this.autorRepo.seleccionarTodos();
+	}
+
 }

@@ -48,9 +48,21 @@ public class AutorRepoImpl implements AutorRepo {
 	public List<AutorDTO> seleccionarTodosDTO() {
 		// TODO Auto-generated method stub
 		
-		TypedQuery<AutorDTO> myQuery = this.entityManager.createQuery("SELECT NEW com.example.demo.repository.modelo.dto.Autor.DTO(m.nombre,m.apellido,m.nacionalidad,m.fechaNacimiento) FROM Autor e",AutorDTO.class);
+		TypedQuery<AutorDTO> myQuery = this.entityManager.createQuery("SELECT NEW com.example.demo.repository.modelo.dto.AutorDTO(e.nombre,e.apellido,e.nacionalidad,e.fechaNacimiento) FROM Autor e",AutorDTO.class);
 		
 		return myQuery.getResultList();
+	}
+
+	@Override
+	public List<Autor> seleccionarTodos() {
+		// TODO Auto-generated method stub
+		TypedQuery<Autor> myQuery = this.entityManager.createQuery("SELECT e FROM Autor e",Autor.class);
+		List<Autor> autores =myQuery.getResultList();		
+				for (Autor autor : autores) {
+					autor.getLibros().size();
+				System.out.println(autor.getLibros().size());
+				}
+				return autores;
 	}
 
 }
