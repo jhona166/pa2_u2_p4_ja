@@ -1,10 +1,13 @@
 package com.example.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.repository.AutorRepo;
 import com.example.demo.repository.modelo.Autor;
+import com.example.demo.repository.modelo.dto.AutorDTO;
 @Service
 public class AutorServiceImpl implements AutorService {
 	@Autowired
@@ -32,6 +35,12 @@ public class AutorServiceImpl implements AutorService {
 	public void borrar(Integer id) {
 		// TODO Auto-generated method stub
 		this.autorRepo.eliminar(id);
+	}
+
+	@Override
+	public List<AutorDTO> buscarTodosDTO() {
+		// TODO Auto-generated method stub
+		return this.autorRepo.seleccionarTodosDTO();
 	}
 
 }

@@ -27,7 +27,7 @@ public class MatriculaRepoImpl implements MatriculaRepo {
 	@Override
 	public List<MatriculaDTO> seleccionarTodosDTO() {
 		// TODO Auto-generated method stub
-		TypedQuery<MatriculaDTO> myQuery = this.entityManager.createQuery("SELECT NEW com.example.demo.repository.modelo.dto.MatriculaDTO(e.estudiante.nombre,e.materia.nombre) FROM Matricula e ",MatriculaDTO.class);
+		TypedQuery<MatriculaDTO> myQuery = this.entityManager.createQuery("SELECT NEW com.example.demo.repository.modelo.dto.MatriculaDTO(e.alumno.nombre,e.materia.nombre) FROM Matricula e ",MatriculaDTO.class);
 		
 
 		

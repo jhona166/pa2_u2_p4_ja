@@ -2,6 +2,7 @@ package com.example.demo.repository.modelo;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Alumno {
 	@Column(name="alum_nombre")
 	private String nombre;
 	
-	@OneToMany(mappedBy="alumno")
+	@OneToMany(mappedBy="alumno",cascade = CascadeType.ALL)
 	private List<Matricula> matriculas;
 
 	@Override

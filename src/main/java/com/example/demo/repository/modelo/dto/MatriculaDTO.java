@@ -5,49 +5,56 @@ import com.example.demo.repository.modelo.Materia;
 
 public class MatriculaDTO {
 
-	private Estudiante estudiante;
-	private Materia materia;
+	private String  nombreAlumno;
+	private String nombreMateria;
+	
+	public void MatriculaDTO() {
+		
+	}
 	
 	
-	
-	
-	
+	public MatriculaDTO(String estudiante, String materia) {
+		super();
+		this.nombreAlumno = estudiante;
+		this.nombreMateria = materia;
+	}
+
+
 	@Override
 	public String toString() {
-		return "MatriculaDTO [estudiante=" + estudiante + ", materia=" + materia + "]";
+		return "MatriculaDTO [estudiante=" + nombreAlumno + ", materia=" + nombreMateria + "]";
 	}
-
-
 	
-	public MatriculaDTO(Estudiante estudiante, Materia materia) {
-		super();
-		this.estudiante = estudiante;
-		this.materia = materia;
-	}
-
-
-
-	public Estudiante getEstudiante() {
-		return estudiante;
-	}
-
-
-	public void setEstudiante(Estudiante estudiante) {
-		this.estudiante = estudiante;
-	}
-
-
-	public Materia getMateria() {
-		return materia;
-	}
-
-
-	public void setMateria(Materia materia) {
-		this.materia = materia;
-	}
-
-
-	public void MatriculaDTO() {
 	
-}
+	//Set and get
+	/**
+	 * @return the estudiante
+	 */
+	public String getEstudiante() {
+		return nombreAlumno;
+	}
+	/**
+	 * @param estudiante the estudiante to set
+	 */
+	public void setEstudiante(String estudiante) {
+		this.nombreAlumno = estudiante;
+	}
+	/**
+	 * @return the materia
+	 */
+	public String getMateria() {
+		return nombreMateria;
+	}
+	/**
+	 * @param materia the materia to set
+	 */
+	public void setMateria(String materia) {
+		this.nombreMateria = materia;
+	}
+	
+
+	//Set and Get
+	
+	
+	
 }

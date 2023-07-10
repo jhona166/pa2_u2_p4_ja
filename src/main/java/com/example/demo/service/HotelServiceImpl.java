@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,12 @@ public class HotelServiceImpl implements HotelService{
 	public Hotel buscar(Integer id) {
 		// TODO Auto-generated method stub
 		return this.hotelRepo.seleccionar(id);
+	}
+
+	@Override
+	public List<Hotel> seleccionarTodos() {
+		// TODO Auto-generated method stub
+		return this.hotelRepo.seleccionarTodos();
 	}
 
 

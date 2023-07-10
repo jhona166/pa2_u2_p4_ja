@@ -29,7 +29,7 @@ public class Habitacion {
 	@Column(name="habi_valor")
 	private BigDecimal valor;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne()
 	@JoinColumn(name="habi_id_hotel")
 	private Hotel hotel;
 	

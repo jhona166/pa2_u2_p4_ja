@@ -8,9 +8,12 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.demo.repository.modelo.Alumno;
 import com.example.demo.repository.modelo.Estudiante;
 import com.example.demo.repository.modelo.Habitacion;
 import com.example.demo.repository.modelo.Hotel;
+import com.example.demo.repository.modelo.Materia;
+import com.example.demo.repository.modelo.Matricula;
 import com.example.demo.service.EmpleadoService;
 import com.example.demo.service.EstudianteService;
 import com.example.demo.service.HotelService;
@@ -57,6 +60,19 @@ public class Pa2U2P4JaApplication implements CommandLineRunner {
 	estu2.setCredAprobados(Double.valueOf(260));
 	estu2.setPromedio(Double.valueOf(18.14));
 	
+	Alumno alum=new  Alumno();
+	alum.setNombre("Paez");
+	
+	Materia mate = new Materia();
+	mate.setNombre("Matematica");
+	
+	
+	Matricula matri = new Matricula();
+	matri.setAlumno(alum);
+	matri.setMateria(mate);
+	
+	this.matriculaService.crear(matri);
+	
 	
 	this.estudianteService.crear(estu);
 	this.estudianteService.crear(estu1);
@@ -97,12 +113,14 @@ public class Pa2U2P4JaApplication implements CommandLineRunner {
 	
 	//System.out.println(this.matriculaService.buscarTodosDTO());
 	
+	
+	System.out.println("Busqueda con DTO");
+	
+	System.out.println(this.matriculaService.buscarTodosDTO());
+	
 	System.out.println("Imprimir habitaciones");
 	
-	for (Habitacion habitacion : habitaciones) {
-		
-		System.out.println(habitacion.getNumero());
-	}
+	System.out.println(this.hotelService.seleccionarTodos());
 	
 	}
 	
